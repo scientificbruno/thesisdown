@@ -24,7 +24,9 @@
 %% Preamble
 %%
 % \documentclass{<something>} must begin each LaTeX document
-\documentclass[12pt,twoside]{reedthesis}
+
+\documentclass[oneside]{report}
+\usepackage{Suthesis-2e}
 % Packages are extensions to the basic LaTeX functions. Whatever you
 % want to typeset, there is probably a package out there for it.
 % Chemistry (chemtex), screenplays, you name it.
@@ -73,24 +75,22 @@ $if(highlighting-macros)$
   $highlighting-macros$
 $endif$
 
-% To pass between YAML and LaTeX the dollar signs are added by CII
+% To pass between YAML and LaTeX the dollar signs are added by 
+\setstretch{1.6}
+
+\begin{document}
 \title{$title$}
 \author{$author$}
 % The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
 \date{$date$}
-\division{$division$}
-\advisor{$advisor$}
-\institution{$institution$}
-\degree{$degree$}
-%If you have two advisors for some reason, you can use the following
-% Uncommented out by CII
-$if(altadvisor)$
-\altadvisor{$altadvisor$}
+\dept{$department$}
+\principaladviser{$advisor$}
+\firstreader{$firstreader$}
+\secondreader{$secondreader$}
+$if(thirdreader)$
+  \thirdreader{$thirdreader$} %if needed
 $endif$
-% End of CII addition
 
-%%% Remember to use the correct department!
-\department{$department$}
 % if you're writing a thesis in an interdisciplinary major,
 % uncomment the line below and change the text as appropriate.
 % check the Senior Handbook if unsure.
@@ -127,81 +127,22 @@ $endif$
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\Acknowledgements{
-$acknowledgements$
-}
 
-\Dedication{
-$dedication$
-}
 
-\Preface{
-$preface$
-}
 
-\Abstract{
+\beforepreface
+\prefacesection{Abstract}
 $abstract$
-}
 
-$for(header-includes)$
-	$header-includes$
-$endfor$
-% End of CII addition
-%%
-%% End Preamble
-%%
-%
+\prefacesection{Dedication}
+$dedication$
+%\prefacesection{}
+%This thesis is dedicated to 
+\prefacesection{Acknowledgments}
+$acknowledgements$
 
-\begin{document}
+\afterpreface
 
-% Everything below added by CII
-$if(title)$
-  \maketitle
-$endif$
-
-\frontmatter % this stuff will be roman-numbered
-\pagestyle{empty} % this removes page numbers from the frontmatter
-
-$if(acknowledgements)$
-  \begin{acknowledgements}
-    $acknowledgements$
-  \end{acknowledgements}
-$endif$
-
-$if(preface)$
-  \begin{preface}
-    $preface$
-  \end{preface}
-$endif$
-
-$if(toc)$
-  \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
-  \setcounter{tocdepth}{$toc-depth$}
-  \tableofcontents
-$endif$
-
-$if(lot)$
-  \listoftables
-$endif$
-
-$if(lof)$
-  \listoffigures
-$endif$
-
-$if(abstract)$
-  \begin{abstract}
-    $abstract$
-  \end{abstract}
-$endif$
-
-$if(dedication)$
-  \begin{dedication}
-    $dedication$
-  \end{dedication}
-$endif$
-
-\mainmatter % here the regular arabic numbering starts
-\pagestyle{fancyplain} % turns page numbering back on
 
 $body$
 
