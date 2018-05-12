@@ -1,19 +1,17 @@
 ---
-author: 'Your R. Name'
-date: 'May 20xx'
-institution: 'Reed College'
-division: 'Mathematics and Natural Sciences'
-advisor: 'Advisor F. Name'
-#altadvisor: 'Your Other Advisor'
-# Delete line 6 if you only have one advisor
-department: 'Mathematics'
-degree: 'Bachelor of Arts'
-title: 'My Final College Paper'
+title: 'The Future of Scholarship'
+author: 'Mary J. Stanford'
+date: 'May 2018'
+advisor: 'Advisor T. Greatest'
+firstreader: 'L. O. Sunshine'
+secondreader: 'Carl Friedrich Gauss'
+department: 'Psychology'
+institution: 'Stanford University'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-#  thesisdown::thesis_pdf: default
-  thesisdown::thesis_gitbook: default
+  thesisdown::thesis_pdf: default
+#  thesisdown::thesis_gitbook: default
 #  thesisdown::thesis_word: default
 #  thesisdown::thesis_epub: default
 # If you are creating a PDF you'll need to write your preliminary content here or
