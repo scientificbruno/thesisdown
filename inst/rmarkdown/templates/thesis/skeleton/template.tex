@@ -78,6 +78,11 @@ $endif$
 % To pass between YAML and LaTeX the dollar signs are added by 
 \setstretch{1.6}
 
+% Laura H Kwong figured out this is needed from thesisdown
+$for(header-includes)$
+	$header-includes$
+$endfor$
+
 \begin{document}
 \title{$title$}
 \author{$author$}
